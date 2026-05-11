@@ -1,0 +1,6 @@
+@SeyahatBackend_HostAddress = http://localhost:5041
+
+GET {{SeyahatBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
