@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/city_model.dart'; 
 import '../services/api_service.dart';
 import '../widgets/travel_card.dart';
-import 'places_screen.dart'; // Mekanlar sayfasını mutlaka import etmelisin
+import 'places_screen.dart'; // - Mekanlar sayfasını import ettik
 
 class CitiesScreen extends StatefulWidget {
   final int regionId;
@@ -24,6 +24,7 @@ class _CitiesScreenState extends State<CitiesScreen> {
   @override
   void initState() {
     super.initState();
+    // - Seçilen bölgeye ait şehirleri API'den çekiyoruz
     futureCities = ApiService().getCitiesByRegion(widget.regionId);
   }
 
@@ -88,12 +89,13 @@ class _CitiesScreenState extends State<CitiesScreen> {
                             imageUrl: city.imageUrl,
                             subtitle: "Detayları Gör",
                             onTap: () {
+                              // - Şehre tıklandığında ilgili PlacesScreen'e yönlendiriyoruz
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PlacesScreen(
-                                    cityId: city.id,
-                                    cityName: city.name,
+                                    cityId: city.id, // - Şehir ID'sini gönderiyoruz
+                                    cityName: city.name, // - Şehir ismini başlık için gönderiyoruz
                                   ),
                                 ),
                               );

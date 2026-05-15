@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/place_model.dart';
 import '../services/api_service.dart';
 import '../widgets/travel_card.dart';
+import 'place_detail_screen.dart'; // Yeni detay sayfamızı içe aktarıyoruz
 
 class PlacesScreen extends StatefulWidget {
   final int cityId;
@@ -23,7 +24,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
   @override
   void initState() {
     super.initState();
-    // ApiService üzerinden mekana ait verileri çekiyoruz
+    // ApiService üzerinden seçilen şehre ait mekanları çekiyoruz
     futurePlaces = ApiService().getPlacesByCity(widget.cityId);
   }
 
@@ -34,6 +35,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(
+          // CitiesScreen ile uyumlu gradyan arka plan
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -84,13 +86,18 @@ class _PlacesScreenState extends State<PlacesScreen> {
                         itemBuilder: (context, index) {
                           final place = snapshot.data![index];
                           return TravelCard(
-                            // Modelindeki 'isim' değişkenini kullanıyoruz
-                            title: place.isim, 
-                            // Modele eklediğimiz 'imageUrl' değişkenini kullanıyoruz
+                            title: place.isim,
+                            // Veritabanından gelen 'assets/images/places/...' yolu
                             imageUrl: place.imageUrl, 
-                            subtitle: "Detayları Gör",
+                            subtitle: "Detayları Gör", // Alt başlığı daha anlamlı yaptık
                             onTap: () {
-                              debugPrint("${place.isim} tıklandı");
+                              // Tıklanan mekanın tüm bilgisini detay sayfasına uçuruyoruz
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PlaceDetailScreen(place: place),
+                                ),
+                              );
                             },
                           );
                         },
@@ -121,12 +128,15 @@ class _PlacesScreenState extends State<PlacesScreen> {
             icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
             onPressed: () => Navigator.pop(context),
           ),
-          Text(
-            widget.cityName,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+          Expanded( // Şehir ismi uzunsa taşmaması için Expanded ekledik
+            child: Text(
+              widget.cityName,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+              overflow: TextOverflow.ellipsis,
             ),
           ),
         ],
