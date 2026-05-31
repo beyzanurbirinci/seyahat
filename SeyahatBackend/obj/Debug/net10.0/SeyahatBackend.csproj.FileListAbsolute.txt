@@ -8,6 +8,7 @@ C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\bin\Debug\net10.0\Seyaha
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\bin\Debug\net10.0\SeyahatBackend.pdb
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\bin\Debug\net10.0\Azure.Core.dll
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\bin\Debug\net10.0\Azure.Identity.dll
+C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\bin\Debug\net10.0\BCrypt-Net-Next.dll
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\bin\Debug\net10.0\Humanizer.dll
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -144,6 +145,7 @@ C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\Seyaha
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\SeyahatBackend.csproj.CoreCompileInputs.cache
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\SeyahatBackend.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\SeyahatBackend.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\SeyahatBackend.sourcelink.json
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
@@ -159,4 +161,3 @@ C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\refint
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\SeyahatBackend.pdb
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\SeyahatBackend.genruntimeconfig.cache
 C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\ref\SeyahatBackend.dll
-C:\Users\Beyza Nur\Documents\Seyahat_app\SeyahatBackend\obj\Debug\net10.0\SeyahatBackend.sourcelink.json

@@ -1,6 +1,9 @@
+// seyahat_mobile/lib/screens/home_modules_screen.dart
 import 'package:flutter/material.dart';
 import '../widgets/travel_card.dart';
 import 'regions_screen.dart'; // Bölgeler ekranı içe aktarıldı
+import 'travel_history_screen.dart'; // Gezi geçmişi ekranı içe aktarıldı
+import 'route_planner_page.dart'; // Akıllı Rota Planlayıcı / Harita ekranı içe aktarıldı
 
 class HomeModulesScreen extends StatelessWidget {
   const HomeModulesScreen({super.key});
@@ -56,13 +59,18 @@ class HomeModulesScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   physics: const BouncingScrollPhysics(),
                   children: [
-                    // 1. MODÜL: Harita
+                    // 1. MODÜL: Harita (Akıllı Rota Planlayıcıya Yönlendirildi)
                     TravelCard(
                       title: "HARİTA",
                       subtitle: "Etrafındaki güzellikleri keşfet",
                       imageUrl: "assets/images/modules/harita.jpg",
                       onTap: () {
-                        // TODO: İleride harita ekranı buraya bağlanacak
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RoutePlannerPage(),
+                          ),
+                        );
                       },
                     ),
 
@@ -81,13 +89,21 @@ class HomeModulesScreen extends StatelessWidget {
                       },
                     ),
 
-                    // 3. MODÜL: Gezi Geçmişim
+                    // 3. MODÜL: Gezi Geçmişim (Arkadaşından Alınan Geçiş Entegre Edildi)
                     TravelCard(
                       title: "GEZİ GEÇMİŞİM",
                       subtitle: "Daha önce uğradığın yerleri gör",
                       imageUrl: "assets/images/modules/gezigecmisi.jpg",
                       onTap: () {
-                        // TODO: İleride gezi geçmişi ekranı buraya bağlanacak
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            // Yeni .NET/MSSQL mimarimiz için token parametresiyle birlikte açıyoruz
+                            builder: (context) => const TravelHistoryScreen(
+                              userToken: "SeyahatApp_Secure_Token_User_1",
+                            ),
+                          ),
+                        );
                       },
                     ),
                   ],

@@ -16,7 +16,6 @@ class ApiService {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      // Backend tarafındaki büyük harfle başlayan alan isimleriyle (AdSoyad, Email, Sifre) eşleşmeli
       body: jsonEncode(<String, String>{
         'AdSoyad': adSoyad,
         'Email': email, 
@@ -46,8 +45,6 @@ class ApiService {
     );
 
     if (response.statusCode == 200) {
-      // İleride backend'den dönen Token bilgisini burada yakalayıp 
-      // SharedPreferences gibi lokal bir hafızada saklayabilirsin.
       print("Giriş Başarılı: ${response.body}");
       return true; 
     } else {
@@ -103,5 +100,26 @@ class ApiService {
     } else {
       throw Exception('Veriler yüklenemedi! Kod: ${response.statusCode}');
     }
+  }
+
+  // ==================== HARİTA ROTA ÇİZİM METODU ====================
+  // GraphHopper API'sinden sıralı mekanların yol çizgi kodunu (polyline) çeker
+  Future<String?> getRoutePolyline(List<List<double>> coordinates) async {
+    final String apiKey = "8006ea29-7594-4749-a648-3261e116479a";
+    final String points = coordinates.map((c) => "point=${c[0]},${c[1]}").join("&");
+    final String url = "https://graphhopper.com/api/1/route?$points&profile=car&locale=tr&calc_points=true&key=$apiKey";
+
+    try {
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        return data['paths'][0]['points']; // Şifrelenmiş çizgi bilgisini döner
+      } else {
+        print("GraphHopper API Hatası: ${response.statusCode} - ${response.body}");
+      }
+    } catch (e) {
+      print("Rota çizgi koordinatları çekilirken hata oluştu: $e");
+    }
+    return null;
   }
 }

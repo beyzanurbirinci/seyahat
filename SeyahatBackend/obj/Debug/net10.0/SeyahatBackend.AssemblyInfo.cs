@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SeyahatBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fcecd097c8afc9ab457c0b76ac6ca886e6fe454")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be770bee9edfec3d35b64772b47bad896d9ad41a")]
 [assembly: System.Reflection.AssemblyProductAttribute("SeyahatBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeyahatBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
